@@ -1,60 +1,89 @@
+import useOnClickOutside from '@/hooks/useOnClickOutside'
 import { CONTACTS } from '@/lib/constants'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid'
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 const Header = () => {
   const [showContact, setShowContact] = useState(false)
+  const contactRef = useRef(null)
+
+  useOnClickOutside(contactRef, () => setShowContact(false))
 
   return (
     <header>
       <div className="max-w-6xl mx-auto px-6 h-full">
         <nav className="flex justify-between items-center h-full">
           <Link href="/">
-            <a className="text-lg">Konrad Rosa</a>
+            <a className="text-lg transition-opacity hover:opacity-70">
+              Konrad Rosa
+            </a>
           </Link>
           <ul className="flex items-center gap-6 text-lg">
             <li>
               <Link href="/blog">
-                <a>Blog</a>
+                <a className="transition-opacity hover:opacity-70">Blog</a>
               </Link>
             </li>
             <li>
-              <a href="#projekty">Projekty</a>
+              <a
+                href="#projekty"
+                className="transition-opacity hover:opacity-70"
+              >
+                Projekty
+              </a>
             </li>
-            <li className="relative">
+            <li className="relative" ref={contactRef}>
               <button
-                className={`flex gap-1 text-amber-400 items-center border-2 border-amber-400/70 px-6 py-2 rounded-full transition-all hover:bg-amber-400 hover:border-amber-400 hover:text-black`}
+                className={`flex gap-1 text-amber-400 items-center border-2 border-amber-400/70 px-6 py-2 rounded-full ${
+                  showContact
+                    ? 'bg-amber-400 border-amber-400 text-black'
+                    : 'transition-all hover:bg-amber-400 hover:border-amber-400 hover:text-black'
+                }`}
                 onClick={() => setShowContact(!showContact)}
               >
                 Skontaktuj się
-                {!showContact ? (
-                  <ChevronDownIcon className={'h-5'} />
-                ) : (
-                  <ChevronUpIcon className="h-5" />
-                )}
+                <ChevronDownIcon
+                  className={`h-5 transition-transform ${
+                    showContact ? 'transform rotate-180' : ''
+                  }`}
+                />
               </button>
-              {showContact && (
-                <ul className="flex flex-col absolute top-16 left-0 z-30 bg-neutral-800 w-full rounded-md">
-                  {CONTACTS.map((contact, index) => (
-                    <li key={index} className="flex">
-                      <a
-                        href={contact.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center gap-4 py-4 px-6 w-full hover:bg-neutral-900/50"
-                      >
-                        <img
-                          src={contact.iconPath}
-                          alt={`Ikona ${contact.label}`}
-                          className="h-6 w-6"
-                        />
-                        {contact.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <AnimatePresence>
+                {showContact && (
+                  <motion.ul
+                    className="flex flex-col absolute top-14 left-0 z-30 bg-neutral-800/80 w-full rounded-md shadow-lg"
+                    initial={{ opacity: 0, y: 0 }}
+                    animate={{
+                      opacity: 1,
+                      y: 20,
+                    }}
+                    exit={{ opacity: 0, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                    role="list"
+                    key="dropdown"
+                  >
+                    {CONTACTS.map((contact, index) => (
+                      <li key={index} className="flex">
+                        <a
+                          href={contact.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-5 py-4 px-7 w-full hover:bg-neutral-800 rounded-md"
+                        >
+                          <img
+                            src={contact.iconPath}
+                            alt={`Ikona ${contact.label}`}
+                            className="h-6 w-6"
+                          />
+                          {contact.label}
+                        </a>
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
+              </AnimatePresence>
             </li>
           </ul>
         </nav>

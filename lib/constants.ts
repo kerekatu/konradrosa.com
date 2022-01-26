@@ -28,7 +28,7 @@ const CONTACTS = [
   {
     label: 'Mail',
     link: 'mailto:konradtrosa@gmail.com',
-    iconPath: '/static/icons/gmail.svg',
+    iconPath: '/static/icons/mail.svg',
   },
   {
     label: 'Github',

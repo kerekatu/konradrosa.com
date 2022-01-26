@@ -55,7 +55,7 @@ const Container = ({
       >
         <Header />
         <main>
-          <div className="max-w-6xl mx-auto px-6">{children}</div>
+          <div className="max-w-6xl mx-auto px-6 h-screen">{children}</div>
         </main>
         <Footer />
       </div>
