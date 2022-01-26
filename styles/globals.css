@@ -1,16 +1,32 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+#__next {
+  min-height: 100vh;
 }
 
-* {
-  box-sizing: border-box;
+.grid-bg {
+  position: relative;
+}
+
+.grid-bg::before {
+  content: '';
+  z-index: -1;
+  display: block;
+  top: 0;
+  left: 0;
+  background: url('/static/grid.png') no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 30%;
+}
+
+.perspective {
+  perspective: 500px;
 }
