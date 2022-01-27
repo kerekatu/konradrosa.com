@@ -55,7 +55,9 @@ const Container = ({
       >
         <Header />
         <main>
-          <div className="max-w-6xl mx-auto px-6 h-screen">{children}</div>
+          <div className="grid gap-8 max-w-6xl mx-auto px-6 min-h-screen">
+            {children}
+          </div>
         </main>
         <Footer />
       </div>

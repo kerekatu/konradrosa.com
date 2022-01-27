@@ -70,7 +70,7 @@ const Header = () => {
                           href={contact.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex items-center gap-5 py-4 px-7 w-full hover:bg-neutral-800 rounded-md"
+                          className="flex items-center gap-5 py-4 px-7 w-full transition-colors hover:bg-neutral-800 rounded-md"
                         >
                           <img
                             src={contact.iconPath}

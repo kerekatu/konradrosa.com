@@ -21,13 +21,14 @@ const siteMeta = {
     },
   ],
   URL: 'https://konradrosa.com',
+  MAIL: 'kontakt@konradrosa.com',
   THUMBNAIL: '',
 }
 
 const CONTACTS = [
   {
     label: 'Mail',
-    link: 'mailto:konradtrosa@gmail.com',
+    link: 'mailto:kontakt@konradrosa.com',
     iconPath: '/static/icons/mail.svg',
   },
   {

@@ -32,11 +32,18 @@ const Hero = () => {
         </div>
         <p className="text-lg w-[56ch] mb-6">{siteMeta.DESCRIPTION}</p>
         <div className="flex gap-4">
-          <TiltButton>Zatrudnij mnie</TiltButton>
-          <button className="flex items-center gap-2 py-3 px-6 text-neutral-200 text-xl transition-opacity hover:opacity-70">
+          <TiltButton
+            onClick={() => (location.href = `mailto:${siteMeta.MAIL}`)}
+          >
+            Zatrudnij mnie
+          </TiltButton>
+          <a
+            href="#projects"
+            className="flex items-center gap-2 py-3 px-6 text-neutral-200 text-xl transition-opacity hover:opacity-70"
+          >
             <ViewGridIcon className="h-5" />
             Zobacz Projekty
-          </button>
+          </a>
         </div>
       </div>
       <div>
