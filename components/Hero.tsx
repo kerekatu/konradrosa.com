@@ -1,7 +1,8 @@
 import { siteMeta } from '@/lib/constants'
 import { ViewGridIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
-import TiltButton from './TiltButton'
+import TiltButton from '@/components/TiltButton'
+import Tooltip from '@/components/Tooltip'
 
 const Hero = () => {
   return (
@@ -16,17 +17,18 @@ const Hero = () => {
           </h1>
         </div>
         <div className="flex text-lg gap-6 items-center">
-          <span className="border-2 border-neutral-800 py-1 px-6 rounded-full">
+          <span className="flex border-2 border-neutral-800 py-1 px-6 rounded-full text-center justify-center w-[200px]">
             🇵🇱 Lublin, Polska
           </span>
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             {siteMeta.TOPICS.map((topic, index) => (
-              <img
-                src={topic.iconPath}
-                alt={`Ikona ${topic.label}`}
-                key={index}
-                className="h-8 w-8 filter-white"
-              />
+              <Tooltip tip={topic.label} key={index}>
+                <img
+                  src={topic.iconPath}
+                  alt={`Ikona ${topic.label}`}
+                  className={`h-8 w-8 text-[${topic.color}]`}
+                />
+              </Tooltip>
             ))}
           </div>
         </div>

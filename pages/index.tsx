@@ -1,6 +1,5 @@
 import Container from '@/components/Container'
 import type { NextPage } from 'next'
-import useSWR from 'swr'
 import Hero from '@/components/Hero'
 import Projects from '@/components/Projects'
 

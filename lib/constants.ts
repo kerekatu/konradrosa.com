@@ -43,4 +43,15 @@ const CONTACTS = [
   },
 ]
 
-export { siteMeta, CONTACTS }
+const PROJECTS = [
+  {
+    type: 'Aplikacja Web',
+    title: 'Uncut Diamonds',
+    description: `Strona poświęcona społeczności na discordzie. Oferuje rozbudowany system zakupów bazujący na ścisłej integracji z API discorda. Użytkownicy serwera mogą dodawać swoje własne "usługi" w zamian za [wirtualną walutę](Nie jest ona w żaden sposób monetyzowana.).`,
+    tags: ['typescript', 'next.js', 'tailwind', 'faunaDB', 'next-auth'],
+    previewLink: 'https://uncutdiamonds.top',
+    codeLink: 'https://github.com/kerekatu/discord-shop-auth-next',
+  },
+]
+
+export { siteMeta, CONTACTS, PROJECTS }
