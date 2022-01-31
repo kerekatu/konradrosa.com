@@ -5,7 +5,7 @@ const Tooltip = ({ children, tip }: { children: ReactNode; tip: string }) => {
   const [show, setShow] = useState(false)
 
   return (
-    <span
+    <div
       onMouseOver={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
       className="inline-block relative font-semibold cursor-pointer"
@@ -13,7 +13,7 @@ const Tooltip = ({ children, tip }: { children: ReactNode; tip: string }) => {
       {children}
       <AnimatePresence>
         {show && (
-          <motion.span
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -21,10 +21,10 @@ const Tooltip = ({ children, tip }: { children: ReactNode; tip: string }) => {
           >
             <div className="bg-neutral-800 h-3 w-3 absolute rotate-45 -bottom-1 left-1/2 -translate-x-1/2" />
             {tip}
-          </motion.span>
+          </motion.div>
         )}
       </AnimatePresence>
-    </span>
+    </div>
   )
 }
 

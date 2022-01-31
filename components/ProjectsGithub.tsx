@@ -1,9 +1,11 @@
 import { CONTACTS } from '@/lib/constants'
+import { LinkIcon } from '@heroicons/react/solid'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Key, useState } from 'react'
+import { Key } from 'react'
 import useSWR from 'swr'
+import Tooltip from './Tooltip'
 
-const GithubProjects = ({
+const ProjectsGithub = ({
   show,
   user,
   currentPage,
@@ -19,6 +21,7 @@ const GithubProjects = ({
       `https://api.github.com/users/kerekatu/repos?sort=newest&per_page=${reposPerPage}&page=${currentPage}&type=public`
   )
 
+  console.log(repos)
   return (
     <div className="grid grid-cols-4 gap-6">
       <p className="text-lg">
@@ -44,29 +47,42 @@ const GithubProjects = ({
           {show &&
             (user && repos && repos.length > 0 ? (
               repos.map((repo) => (
-                <li
-                  className="flex flex-col gap-4 border-2 border-neutral-800 rounded-lg p-6"
-                  key={repo.id}
-                >
-                  {/* <span>
+                <li className="flex" key={repo.id}>
+                  <a
+                    href={repo.html_url}
+                    className="flex flex-col gap-4 border-2 border-neutral-800 rounded-lg p-6 w-full transition-colors hover:border-neutral-700 group"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {/* <span>
                     {format(Date.parse(repo.created_at), 'dd. MMM yyyy ', {
                       locale: pl,
                     })}
                   </span> */}
-                  <h3 className="text-lg font-bold">{repo.name}</h3>
-                  {repo?.description && <p>{repo.description}</p>}
-                  {repo?.topics && (
-                    <div className="flex gap-x-2 gap-y-3 flex-wrap mt-auto">
-                      {repo.topics.map((topic: string, index: Key) => (
-                        <span
-                          key={index}
-                          className="bg-neutral-800 px-4 p-1 rounded-full text-xs"
-                        >
-                          {topic}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+                    <h3 className="flex items-center gap-2 text-lg font-bold">
+                      <Tooltip tip="Przejdź do repozytorium">
+                        <LinkIcon className="h-6 text-neutral-700/70 transition-colors group-hover:text-neutral-700" />
+                      </Tooltip>{' '}
+                      {repo.name}
+                    </h3>
+                    {repo?.description && (
+                      <p className="line-clamp-2 text-neutral-300/70 transition-colors group-hover:text-neutral-300">
+                        {repo.description}
+                      </p>
+                    )}
+                    {repo?.topics && (
+                      <div className="flex gap-2 flex-wrap mt-auto">
+                        {repo.topics.map((topic: string, index: Key) => (
+                          <span
+                            key={index}
+                            className="bg-neutral-800 px-4 p-1 rounded-md text-xs text-neutral-400 opacity-70 transition-opacity hover:opacity-100"
+                          >
+                            {topic}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </a>
                 </li>
               ))
             ) : (
@@ -85,4 +101,4 @@ const GithubProjects = ({
   )
 }
 
-export default GithubProjects
+export default ProjectsGithub

@@ -5,10 +5,10 @@ export default function interpolateTooltip(str: string) {
   const pattern = new RegExp(/(\[.*?\]\(.*?\))/g)
   const parts = str.split(pattern)
 
-  return parts.map((part) =>
+  return parts.map((part, index) =>
     part.match(pattern) ? (
-      <Tooltip tip={part.replace(/(\[.*?\]\(|\))/g, '')}>
-        {part.replace(/(\[|\]\(.*?\))/g, '')}*
+      <Tooltip tip={part.replace(/(\[.*?\]\(|\))/g, '')} key={index}>
+        <u>{part.replace(/(\[|\]\(.*?\))/g, '')}</u>
       </Tooltip>
     ) : (
       part
