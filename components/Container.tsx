@@ -7,12 +7,14 @@ import Header from '@/components/Header'
 interface ContainerProps {
   children?: React.ReactNode
   showGrid?: boolean
+  showFooter?: boolean
   customMeta?: Partial<SiteMeta>
 }
 
 const Container = ({
   customMeta,
   showGrid = false,
+  showFooter = true,
   children,
 }: ContainerProps) => {
   const router = useRouter()
@@ -55,11 +57,9 @@ const Container = ({
       >
         <Header />
         <main>
-          <div className="grid gap-8 max-w-6xl mx-auto px-6 min-h-screen">
-            {children}
-          </div>
+          <div className="grid gap-8 max-w-6xl mx-auto px-6">{children}</div>
         </main>
-        <Footer />
+        <Footer isVisible={showFooter} />
       </div>
     </>
   )
