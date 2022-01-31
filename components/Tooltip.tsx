@@ -1,7 +1,14 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { ReactNode, useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 
-const Tooltip = ({ children, tip }: { children: ReactNode; tip: string }) => {
+const Tooltip = ({
+  children,
+  tip,
+  ...props
+}: {
+  children: ReactNode
+  tip: string
+}) => {
   const [show, setShow] = useState(false)
 
   return (
@@ -9,6 +16,7 @@ const Tooltip = ({ children, tip }: { children: ReactNode; tip: string }) => {
       onMouseOver={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
       className="inline-block relative font-semibold cursor-pointer"
+      {...props}
     >
       {children}
       <AnimatePresence>

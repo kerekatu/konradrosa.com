@@ -1,6 +1,6 @@
 import { PROJECTS } from '@/lib/constants'
 import interpolateTooltip from '@/lib/interpolateTooltip'
-import { CodeIcon, ExternalLinkIcon } from '@heroicons/react/solid'
+import { CodeIcon, ExternalLinkIcon, LinkIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
 
 const ProjectsPicks = () => {
@@ -27,18 +27,34 @@ const ProjectsPicks = () => {
                   Zobacz na żywo
                 </a>
               )}
-              {project?.codeLink && (
+              {/* {project?.codeLink && (
                 <a
                   className="flex items-center gap-2 text-xl font-bold transition-opacity hover:opacity-70"
                   href={project.codeLink}
                 >
                   <CodeIcon className="h-6" />
-                  Kod źródłowy
+                  Zobacz kod
                 </a>
-              )}
+              )} */}
             </div>
           </div>
-          <div className="relative h-96 w-full shadow-md">
+          <a
+            href={project.previewLink}
+            target="_blank"
+            rel="noreferrer"
+            className="group relative h-96 w-full shadow-md transition-shadow hover:shadow-xl"
+          >
+            <LinkIcon className="opacity-0 absolute top-6 right-6 z-10 h-8 text-neutral-300/90 border-2 border-neutral-700/40 bg-neutral-800/60 p-2 rounded-xl box-content transition-opacity group-hover:opacity-100" />
+            <ul className="absolute bottom-6 left-6 z-10 flex gap-x-2 gap-y-3 flex-wrap">
+              {project.tags.map((tag, index) => (
+                <li
+                  key={index}
+                  className="border-2 border-neutral-700/40 bg-neutral-800/60 py-1 px-4 text-xs font-semibold rounded-md uppercase"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
             <Image
               src={`/static/projects/project-${index + 1}.png`}
               layout="fill"
@@ -47,7 +63,7 @@ const ProjectsPicks = () => {
               quality={100}
               alt={`Zdjęcie przedstawia projekt ${project.title}`}
             />
-          </div>
+          </a>
         </li>
       ))}
     </ul>

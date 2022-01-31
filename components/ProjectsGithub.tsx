@@ -65,6 +65,7 @@ const ProjectsGithub = ({
                       </Tooltip>{' '}
                       {repo.name}
                     </h3>
+
                     {repo?.description && (
                       <p className="line-clamp-2 text-neutral-300/70 transition-colors group-hover:text-neutral-300">
                         {repo.description}
