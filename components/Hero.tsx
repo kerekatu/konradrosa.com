@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="flex flex-col gap-6">
         <div className="flex items-center gap-2 self-start rounded-md">
           <h1 className="flex flex-col font-bold text-4xl leading-tight text-neutral-200 z-10">
-            <span className="text-2xl font-light text-neutral-500">
+            <span className="text-2xl font-light text-neutral-500 mb-2">
               Cześć, tu Konrad! 👋
             </span>{' '}
             Jestem Front-end Deweloperem.
