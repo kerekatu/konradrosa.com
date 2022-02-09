@@ -6,3 +6,9 @@ type SiteMeta = {
   thumbnail: string
   date: string
 }
+
+namespace NodeJS {
+  interface ProcessEnv extends NodeJS.ProcessEnv {
+    GITHUB_SECRET: string
+  }
+}

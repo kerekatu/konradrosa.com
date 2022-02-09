@@ -20,9 +20,10 @@
       "@/layouts/*": ["layouts/*"],
       "@/lib/*": ["lib/*"],
       "@/styles/*": ["styles/*"],
-      "@/hooks/*": ["hooks/*"]
+      "@/hooks/*": ["hooks/*"],
+      "@/typings/*": ["typings/*"]
     }
   },
-  "include": ["next-env.d.ts", "types.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "typings/*.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

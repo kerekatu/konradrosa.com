@@ -2,26 +2,22 @@ import { CONTACTS } from '@/lib/constants'
 import { LinkIcon } from '@heroicons/react/solid'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Key } from 'react'
+import { PER_PAGE } from '@/components/Projects'
+import Tooltip from '@/components/Tooltip'
+import { GithubUserRepo } from '@/typings/github'
 import useSWR from 'swr'
-import Tooltip from './Tooltip'
 
 const ProjectsGithub = ({
   show,
-  user,
   currentPage,
-  reposPerPage,
 }: {
   show: boolean
-  user: { [key: string]: any }
   currentPage: number
-  reposPerPage: number
 }) => {
-  const { data: repos } = useSWR<[{ [key: string]: any }]>(
-    show &&
-      `https://api.github.com/users/kerekatu/repos?sort=newest&per_page=${reposPerPage}&page=${currentPage}&type=public`
+  const { data: repos } = useSWR<GithubUserRepo[]>(
+    `api/repos?per_page=${PER_PAGE}&page=${currentPage}`
   )
 
-  console.log(repos)
   return (
     <div className="grid grid-cols-4 gap-6">
       <p className="text-lg">
@@ -45,7 +41,7 @@ const ProjectsGithub = ({
           className="grid grid-cols-2 gap-8 col-span-3"
         >
           {show &&
-            (user && repos && repos.length > 0 ? (
+            (repos && repos.length > 0 ? (
               repos.map((repo) => (
                 <li className="flex" key={repo.id}>
                   <a
@@ -54,11 +50,6 @@ const ProjectsGithub = ({
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {/* <span>
-                    {format(Date.parse(repo.created_at), 'dd. MMM yyyy ', {
-                      locale: pl,
-                    })}
-                  </span> */}
                     <h3 className="flex items-center gap-2 text-lg font-bold">
                       <Tooltip tip="Przejdź do repozytorium">
                         <LinkIcon className="h-6 text-neutral-700/70 transition-colors group-hover:text-neutral-700" />
@@ -88,12 +79,15 @@ const ProjectsGithub = ({
               ))
             ) : (
               <>
-                {Array(reposPerPage).fill(
-                  <div className="flex flex-col gap-4 border-2 border-neutral-800 rounded-lg p-6 h-32 animate-pulse">
+                {Array.from(Array(PER_PAGE), (_, index) => (
+                  <div
+                    className="flex flex-col gap-4 border-2 border-neutral-800 rounded-lg p-6 h-32 animate-pulse"
+                    key={index}
+                  >
                     <div className="bg-neutral-800 p-2 rounded-full"></div>
                     <div className="bg-neutral-800 p-2 rounded-full w-1/2"></div>
                   </div>
-                )}
+                ))}
               </>
             ))}
         </motion.ul>

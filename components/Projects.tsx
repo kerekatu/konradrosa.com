@@ -4,20 +4,22 @@ import useSWR from 'swr'
 import ProjectsGithub from '@/components/ProjectsGithub'
 import ProjectsPicks from '@/components/ProjectsPicks'
 
-const PER_PAGE = 4
+export const PER_PAGE = 4
 
 const Projects = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [pageCount, setPageCount] = useState(1)
   const [showAllProjects, setShowAllProjects] = useState(false)
-  const { data: githubUser } = useSWR<{ [key: string]: any }>(
-    showAllProjects && 'https://api.github.com/users/kerekatu'
+  const { data: reposCount } = useSWR<{ reposCount: number }>(
+    showAllProjects && 'api/repos/count'
   )
 
   useEffect(() => {
-    const pages = Math.ceil(githubUser?.public_repos / PER_PAGE)
-    setPageCount(pages)
-  }, [githubUser])
+    if (reposCount) {
+      const pages = Math.ceil(reposCount.reposCount / PER_PAGE)
+      setPageCount(pages)
+    }
+  }, [reposCount])
 
   function handlePageChange(action: 'next' | 'previous') {
     if (action === 'next' && pageCount > currentPage) {
@@ -83,12 +85,7 @@ const Projects = () => {
         {!showAllProjects ? (
           <ProjectsPicks />
         ) : (
-          <ProjectsGithub
-            show={showAllProjects}
-            user={githubUser!}
-            currentPage={currentPage}
-            reposPerPage={PER_PAGE}
-          />
+          <ProjectsGithub show={showAllProjects} currentPage={currentPage} />
         )}
       </div>
     </section>

@@ -1,6 +1,6 @@
 import useOnClickOutside from '@/hooks/useOnClickOutside'
 import { CONTACTS } from '@/lib/constants'
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid'
+import { ChevronDownIcon } from '@heroicons/react/solid'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import React, { useRef, useState } from 'react'
