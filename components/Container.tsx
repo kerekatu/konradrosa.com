@@ -52,12 +52,10 @@ const Container = ({
         )}
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <div
-        className={`grid grid-rows-layout gap-8 ${showGrid ? 'grid-bg' : ''}`}
-      >
+      <div className={`grid grid-rows-layout ${showGrid ? 'grid-bg' : ''}`}>
         <Header />
         <main>
-          <div className="grid gap-8 max-w-6xl mx-auto px-6">{children}</div>
+          <div className="grid gap-32 max-w-6xl mx-auto px-6">{children}</div>
         </main>
         <Footer isVisible={showFooter} />
       </div>
