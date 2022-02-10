@@ -17,17 +17,17 @@ const ProjectsPicks = () => {
               {interpolateTooltip(project.description)}
             </span>
 
-            <div className="flex flex-col gap-2 mt-auto">
+            <div className="flex flex-col items-start gap-2 mt-auto">
               {project?.previewLink && (
                 <a
                   className="flex items-center gap-2 text-xl font-bold transition-opacity hover:opacity-70"
                   href={project.previewLink}
                 >
                   <ExternalLinkIcon className="h-6" />
-                  Zobacz na żywo
+                  Podgląd na żywo
                 </a>
               )}
-              {/* {project?.codeLink && (
+              {project?.codeLink && (
                 <a
                   className="flex items-center gap-2 text-xl font-bold transition-opacity hover:opacity-70"
                   href={project.codeLink}
@@ -35,7 +35,7 @@ const ProjectsPicks = () => {
                   <CodeIcon className="h-6" />
                   Zobacz kod
                 </a>
-              )} */}
+              )}
             </div>
           </div>
           <a

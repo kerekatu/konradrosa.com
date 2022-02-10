@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 import ProjectsGithub from '@/components/ProjectsGithub'
 import ProjectsPicks from '@/components/ProjectsPicks'
+import { PROJECTS } from '@/lib/constants'
 
 export const PER_PAGE = 4
 
@@ -11,15 +12,23 @@ const Projects = () => {
   const [pageCount, setPageCount] = useState(1)
   const [showAllProjects, setShowAllProjects] = useState(false)
   const { data: reposCount } = useSWR<{ reposCount: number }>(
-    showAllProjects && 'api/repos/count'
+    showAllProjects ? 'api/repos/count' : null
   )
 
   useEffect(() => {
     if (reposCount) {
-      const pages = Math.ceil(reposCount.reposCount / PER_PAGE)
-      setPageCount(pages)
+      const reposPages = Math.ceil(reposCount.reposCount / PER_PAGE)
+      setPageCount(reposPages)
+    } else {
+      const selectedProjectsPages = Math.ceil(PROJECTS.length / 2)
+      setPageCount(selectedProjectsPages)
     }
   }, [reposCount])
+
+  function handleChangeCategory(allProjects: boolean = false) {
+    setCurrentPage(1)
+    setShowAllProjects(allProjects)
+  }
 
   function handlePageChange(action: 'next' | 'previous') {
     if (action === 'next' && pageCount > currentPage) {
@@ -39,19 +48,21 @@ const Projects = () => {
               className={`text-xl py-1 px-6 rounded-full ${
                 showAllProjects
                   ? 'transition-colors hover:text-amber-400'
-                  : 'text-amber-400 border-2 border-amber-400 cursor-default'
+                  : 'text-amber-400 border-2 border-amber-400'
               }`}
-              onClick={() => setShowAllProjects(false)}
+              onClick={() => handleChangeCategory(false)}
+              disabled={!showAllProjects}
             >
               Wybrane
             </button>
             <button
               className={`text-xl py-1 px-6 rounded-full ${
                 showAllProjects
-                  ? 'text-amber-400 border-2 border-amber-400 cursor-default'
+                  ? 'text-amber-400 border-2 border-amber-400'
                   : 'transition-colors hover:text-amber-400'
               }`}
-              onClick={() => setShowAllProjects(true)}
+              onClick={() => handleChangeCategory(true)}
+              disabled={showAllProjects}
             >
               Wszystkie
             </button>
