@@ -54,7 +54,7 @@ const Hero = () => {
           height={800}
           width={650}
           alt="Zdjęcie przedstawia moją osobę"
-          className="transform scale-x-[-1] rounded-md"
+          className="transform scale-x-[-1] rounded-md pointer-events-none"
         />
       </div>
     </section>
