@@ -10,7 +10,7 @@ module.exports = {
     },
     extend: {
       gridTemplateRows: {
-        layout: '100px 1fr 100px',
+        layout: '100px 1fr min-content',
       },
     },
   },

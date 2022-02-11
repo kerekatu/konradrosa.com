@@ -9,7 +9,6 @@ const Home: NextPage = () => {
     <Container showGrid={true}>
       <Hero />
       <Projects />
-      {/* <Contact /> */}
     </Container>
   )
 }
