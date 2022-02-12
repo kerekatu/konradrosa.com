@@ -7,6 +7,12 @@ type SiteMeta = {
   date: string
 }
 
+interface NavItem {
+  label: string
+  iconPath?: string | null
+  link: string
+}
+
 namespace NodeJS {
   interface ProcessEnv extends NodeJS.ProcessEnv {
     GITHUB_SECRET: string

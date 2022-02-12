@@ -55,7 +55,7 @@ const Container = ({
       <div className={`grid grid-rows-layout ${showGrid ? 'grid-bg' : ''}`}>
         <Header />
         <main>
-          <div className="grid gap-32 max-w-6xl mx-auto px-6">{children}</div>
+          <div className="grid gap-32 max-w-6xl mx-auto px-8">{children}</div>
         </main>
         <Footer isVisible={showFooter} />
       </div>

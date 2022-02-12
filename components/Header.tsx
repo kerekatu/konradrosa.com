@@ -1,9 +1,10 @@
 import useOnClickOutside from '@/hooks/useOnClickOutside'
-import { CONTACTS } from '@/lib/constants'
+import { CONTACTS, NAV_ITEMS } from '@/lib/constants'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import React, { useRef, useState } from 'react'
+import MobileNav from './MobileNav'
 
 const Header = () => {
   const [showContact, setShowContact] = useState(false)
@@ -13,27 +14,21 @@ const Header = () => {
 
   return (
     <header>
-      <div className="max-w-6xl mx-auto px-6 h-full">
+      <div className="max-w-6xl mx-auto px-8 h-full text-lg">
         <nav className="flex justify-between items-center h-full">
           <Link href="/">
-            <a className="text-lg transition-opacity hover:opacity-70">
-              Konrad Rosa
-            </a>
+            <a className="transition-opacity hover:opacity-70">Konrad Rosa</a>
           </Link>
-          <ul className="flex items-center gap-6 text-lg">
-            <li>
-              <Link href="/blog">
-                <a className="transition-opacity hover:opacity-70">Blog</a>
-              </Link>
-            </li>
-            <li>
-              <a
-                href="#projekty"
-                className="transition-opacity hover:opacity-70"
-              >
-                Projekty
-              </a>
-            </li>
+          <ul className="hidden items-center gap-6 md:flex">
+            {NAV_ITEMS.map((item, index) => (
+              <li key={index}>
+                <Link href={item.link}>
+                  <a className="transition-opacity hover:opacity-70">
+                    {item.label}
+                  </a>
+                </Link>
+              </li>
+            ))}
             <li className="relative" ref={contactRef}>
               <button
                 className={`flex gap-1 text-amber-400 items-center border-2 border-amber-400/70 px-6 py-2 rounded-full ${
@@ -86,6 +81,7 @@ const Header = () => {
               </AnimatePresence>
             </li>
           </ul>
+          <MobileNav />
         </nav>
       </div>
     </header>

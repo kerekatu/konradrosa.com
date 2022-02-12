@@ -5,7 +5,7 @@ const Footer = ({ isVisible }: { isVisible: boolean }) => {
     <>
       {isVisible && (
         <footer className="bg-neutral-800 text-neutral-200">
-          <div className="flex flex-col max-w-6xl mx-auto px-6 h-full">
+          <div className="flex flex-col max-w-6xl mx-auto px-8 h-full">
             <div className="pt-24">
               <div className="flex flex-col gap-4">
                 <a className="w-max" href={`mailto:${siteMeta.MAIL}`}>

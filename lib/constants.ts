@@ -25,6 +25,13 @@ const siteMeta = {
   THUMBNAIL: '',
 }
 
+const NAV_ITEMS = [
+  {
+    label: 'Projekty',
+    link: '#projects',
+  },
+]
+
 const CONTACTS = [
   {
     label: 'Mail',
@@ -54,4 +61,4 @@ const PROJECTS = [
   },
 ]
 
-export { siteMeta, CONTACTS, PROJECTS }
+export { siteMeta, NAV_ITEMS, CONTACTS, PROJECTS }
