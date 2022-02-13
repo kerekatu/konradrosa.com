@@ -39,7 +39,7 @@ const MobileNav = () => {
   }
 
   useEffect(() => {
-    return function cleanup() {
+    return () => {
       document.body.style.overflow = ''
     }
   }, [])
