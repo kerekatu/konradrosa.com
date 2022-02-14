@@ -39,7 +39,7 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="flex flex-col gap-12 h-screen pt-12">
+    <section id="projects" className="flex flex-col gap-12 min-h-screen pt-12">
       <div className="grid grid-cols-4">
         <h2 className="text-3xl font-bold">Projekty</h2>
         <div className="flex col-span-3 justify-between items-center">
