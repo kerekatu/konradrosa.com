@@ -7,8 +7,11 @@ const ProjectsPicks = () => {
   return (
     <ul>
       {PROJECTS.map((project, index) => (
-        <li className="flex justify-between gap-12" key={index}>
-          <div className="flex flex-col gap-4 w-[580px]">
+        <li
+          className="flex flex-col justify-between gap-12 lg:flex-row"
+          key={index}
+        >
+          <div className="flex flex-col gap-4 w-full md:w-[580px]">
             <span className="uppercase leading-4 text-sm tracking-widest text-neutral-500">
               {project.type}
             </span>
@@ -42,7 +45,7 @@ const ProjectsPicks = () => {
             href={project.previewLink}
             target="_blank"
             rel="noreferrer"
-            className="group relative h-96 w-full shadow-md transition-shadow hover:shadow-xl"
+            className="group relative h-72  w-full shadow-md transition-shadow hover:shadow-xl lg:h-96"
           >
             <LinkIcon className="opacity-0 absolute top-6 right-6 z-10 h-8 text-neutral-300/90 border-2 border-neutral-700/40 bg-neutral-800/60 p-2 rounded-xl box-content transition-opacity group-hover:opacity-100" />
             <ul className="absolute bottom-6 left-6 z-10 flex gap-x-2 gap-y-3 flex-wrap">

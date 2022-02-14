@@ -20,7 +20,7 @@ const ProjectsGithub = ({
 
   return (
     <div className="grid grid-cols-4 gap-6">
-      <p className="text-lg">
+      <p className="text-lg col-span-4 lg:col-span-1">
         Wszystkie projekty są pobierane bezpośrednio z mojego profilu na{' '}
         <a
           href={CONTACTS.find((contact) => contact.label === 'Github')?.link}
@@ -38,7 +38,7 @@ const ProjectsGithub = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15, duration: 0.2 }}
           key={currentPage}
-          className="grid grid-cols-2 gap-8 col-span-3"
+          className="grid grid-cols-1 gap-8 col-span-4 md:grid-cols-2 lg:col-span-3"
         >
           {show &&
             (repos && repos.length > 0 ? (

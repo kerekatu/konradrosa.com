@@ -41,13 +41,13 @@ const Projects = () => {
   return (
     <section id="projects" className="flex flex-col gap-12 min-h-screen pt-12">
       <div className="grid grid-cols-4">
-        <h2 className="text-3xl font-bold">Projekty</h2>
-        <div className="flex col-span-3 justify-between items-center">
-          <div className="flex gap-6">
+        <h2 className="text-3xl font-bold mb-6 lg:mb-0">Projekty</h2>
+        <div className="flex flex-col col-span-4 col-start-1 gap-6 sm:flex-row lg:col-span-3 lg:items-center sm:justify-between">
+          <div className="flex flex-col gap-6 sm:flex-row">
             <button
-              className={`text-xl py-1 px-6 rounded-full ${
+              className={`text-xl py-1 px-6 border-2 rounded-full ${
                 showAllProjects
-                  ? 'transition-colors hover:text-amber-400'
+                  ? 'border-neutral-300 transition-colors hover:text-amber-400 hover:border-amber-400'
                   : 'text-amber-400 border-2 border-amber-400'
               }`}
               onClick={() => handleChangeCategory(false)}
@@ -56,10 +56,10 @@ const Projects = () => {
               Wybrane
             </button>
             <button
-              className={`text-xl py-1 px-6 rounded-full ${
+              className={`text-xl py-1 px-6 border-2 rounded-full ${
                 showAllProjects
-                  ? 'text-amber-400 border-2 border-amber-400'
-                  : 'transition-colors hover:text-amber-400'
+                  ? 'text-amber-400 border-amber-400'
+                  : 'border-neutral-300 transition-colors hover:text-amber-400 hover:border-amber-400'
               }`}
               onClick={() => handleChangeCategory(true)}
               disabled={showAllProjects}
@@ -67,7 +67,9 @@ const Projects = () => {
               Wszystkie
             </button>
           </div>
-          <div className="flex gap-4">
+          <div
+            className={`gap-4 ${pageCount <= 1 ? 'hidden' : 'flex'} sm:flex`}
+          >
             <button
               className={`border-2 rounded-full p-1 transition-all ${
                 currentPage !== 1
@@ -92,7 +94,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="col-span-3">
+      <div>
         {!showAllProjects ? (
           <ProjectsPicks />
         ) : (
