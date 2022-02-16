@@ -13,6 +13,7 @@ type TiltButtonProps<T extends ElementType> = {
 
 const TiltButton = <T extends ElementType = 'button'>({
   children,
+  className,
   ...props
 }: TiltButtonProps<T>): JSX.Element => {
   const y = useMotionValue(0.5)
@@ -52,7 +53,9 @@ const TiltButton = <T extends ElementType = 'button'>({
           rotateY,
           rotateX,
         }}
-        className="py-3 px-6 bg-amber-400 shadow-xl shadow-amber-500/10 text-neutral-900 font-bold text-xl rounded-md transition-shadow hover:shadow-lg hover:shadow-amber-400/10"
+        className={`py-3 px-6 bg-amber-400 shadow-xl shadow-amber-500/10 text-neutral-900 font-bold text-xl rounded-md transition-shadow hover:shadow-lg hover:shadow-amber-400/10 ${
+          className ?? ''
+        }`}
         {...props}
       >
         {children}
