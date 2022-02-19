@@ -36,7 +36,7 @@ const Hero = () => {
           <p className="text-lg max-w-[56ch] mb-6 lg:w-[56ch]">
             {siteMeta.DESCRIPTION}
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex flex-col gap-6 sm:flex-row">
             <TiltButton
               onClick={() => (location.href = `mailto:${siteMeta.MAIL}`)}
             >
