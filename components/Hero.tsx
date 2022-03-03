@@ -3,12 +3,18 @@ import { ViewGridIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
 import TiltButton from '@/components/TiltButton'
 import Tooltip from '@/components/Tooltip'
+import { motion } from 'framer-motion'
 
 const Hero = () => {
   return (
     <section className="flex mt-20 lg:items-center lg:mt-0 lg:min-h-[calc(100vh_-_100px)]">
       <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:mt-0">
-        <div className="flex flex-col gap-6">
+        <motion.div
+          className="flex flex-col gap-6"
+          transition={{ duration: 1 }}
+          initial={{ y: 60, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
           <div className="flex items-center gap-2 self-start rounded-md">
             <h1 className="flex flex-col font-bold text-3xl leading-tight text-neutral-200 z-10 md:text-4xl">
               <span className="text-xl font-light text-neutral-500 mb-2 md:text-2xl">
@@ -50,8 +56,13 @@ const Hero = () => {
               Zobacz Projekty
             </a>
           </div>
-        </div>
-        <div className="hidden lg:block">
+        </motion.div>
+        <motion.div
+          className="hidden lg:block"
+          transition={{ duration: 1, delay: 0.2 }}
+          initial={{ y: 60, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
           <Image
             src="/static/profil.jpg"
             height={900}
@@ -59,7 +70,7 @@ const Hero = () => {
             alt="Zdjęcie przedstawia moją osobę"
             className="rounded-md pointer-events-none"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   )
