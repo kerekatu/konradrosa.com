@@ -1,8 +1,20 @@
 import { PROJECTS } from '@/lib/constants'
 import interpolateTooltip from '@/lib/interpolateTooltip'
 import { CodeIcon, ExternalLinkIcon, LinkIcon } from '@heroicons/react/solid'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, Variants } from 'framer-motion'
 import Image from 'next/image'
+
+const cardVariants: Variants = {
+  offScreen: {
+    opacity: 0,
+  },
+  onScreen: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+}
 
 const ProjectsPicks = () => {
   return (
@@ -13,8 +25,12 @@ const ProjectsPicks = () => {
         transition={{ delay: 0.15, duration: 0.2 }}
       >
         {PROJECTS.map((project, index) => (
-          <li
+          <motion.li
             className="flex flex-col justify-between gap-12 lg:flex-row"
+            variants={cardVariants}
+            initial="offScreen"
+            whileInView="onScreen"
+            viewport={{ once: true, amount: 0.4 }}
             key={index}
           >
             <div className="flex flex-col gap-4 w-full md:w-[580px]">
@@ -73,7 +89,7 @@ const ProjectsPicks = () => {
                 alt={`Zdjęcie przedstawia projekt ${project.title}`}
               />
             </a>
-          </li>
+          </motion.li>
         ))}
       </motion.ul>
     </AnimatePresence>
