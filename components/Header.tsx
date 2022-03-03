@@ -14,7 +14,12 @@ const Header = () => {
 
   return (
     <header>
-      <div className="max-w-6xl mx-auto px-8 h-full text-lg">
+      <motion.div
+        className="max-w-6xl mx-auto px-8 h-full text-lg"
+        initial={{ y: -100 }}
+        transition={{ duration: 1 }}
+        animate={{ y: 0 }}
+      >
         <nav className="flex justify-between items-center h-full">
           <Link href="/">
             <a className="transition-opacity hover:opacity-70">Konrad Rosa</a>
@@ -83,7 +88,7 @@ const Header = () => {
           </ul>
           <MobileNav />
         </nav>
-      </div>
+      </motion.div>
     </header>
   )
 }
