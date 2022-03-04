@@ -54,10 +54,17 @@ const PROJECTS = [
   {
     type: 'Aplikacja Web',
     title: 'Uncut Diamonds',
-    description: `Strona poświęcona społeczności na discordzie. Oferuje rozbudowany system zakupów bazujący na ścisłej integracji z API discorda. Użytkownicy serwera mogą dodawać swoje własne "usługi" w zamian za [wirtualną walutę](Nie jest ona w żaden sposób monetyzowana.).`,
+    description: `Strona poświęcona społeczności na discordzie. Oferuje rozbudowany system zakupów bazujący na ścisłej integracji z API discorda. Użytkownicy serwera mogą dodawać swoje własne "usługi" w zamian za wirtualną walutę. Całość współgra z napisanym przeze mnie [botem](https://github.com/kerekatu/uncut-diamonds-bot).`,
     tags: ['typescript', 'next.js', 'tailwind', 'faunaDB', 'next-auth'],
     previewLink: 'https://uncutdiamonds.top',
     codeLink: 'https://github.com/kerekatu/discord-shop-auth-next',
+  },
+  {
+    type: 'Strona Internetowa',
+    title: 'Portfolio',
+    description: `Moja aktualna strona portfolio na której się znajdujesz. Zaprojektowana w [Figmie](Program do grafiki wektorowej.) ma na celu zwalidować moje umiejętności w UX i UI designie. Idealnie sprawdza się na każdym urządzeniu z wartkimi animacjami wykonanymi w Framer Motion. Planowany na przyszłość jest także system blogowy.`,
+    tags: ['typescript', 'next.js', 'tailwind', 'framer-motion'],
+    codeLink: 'https://github.com/kerekatu/konradrosa.com',
   },
 ]
 

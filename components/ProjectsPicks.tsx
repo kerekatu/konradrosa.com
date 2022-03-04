@@ -23,6 +23,7 @@ const ProjectsPicks = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.15, duration: 0.2 }}
+        className="flex flex-col gap-24"
       >
         {PROJECTS.map((project, index) => (
           <motion.li
@@ -67,9 +68,13 @@ const ProjectsPicks = () => {
               href={project.previewLink}
               target="_blank"
               rel="noreferrer"
-              className="group relative h-72  w-full shadow-md transition-shadow hover:shadow-xl lg:h-96"
+              className={`group relative h-72 w-full shadow-md transition-shadow ${
+                project.previewLink ? 'hover:shadow-xl' : ''
+              } lg:h-96`}
             >
-              <LinkIcon className="opacity-0 absolute top-6 right-6 z-10 h-8 text-neutral-300/90 border-2 border-neutral-700/40 bg-neutral-800/60 p-2 rounded-xl box-content transition-opacity group-hover:opacity-100" />
+              {project.previewLink && (
+                <LinkIcon className="opacity-0 absolute top-6 right-6 z-10 h-8 text-neutral-300/90 border-2 border-neutral-700/40 bg-neutral-800/60 p-2 rounded-xl box-content transition-opacity group-hover:opacity-100" />
+              )}
               <ul className="absolute bottom-6 left-6 z-10 flex gap-x-2 gap-y-3 flex-wrap">
                 {project.tags.map((tag, index) => (
                   <li
