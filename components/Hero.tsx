@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
   return (
-    <section className="flex mt-20 lg:items-center lg:mt-0 lg:min-h-[calc(100vh_-_100px)]">
+    <section className="flex mt-6 lg:items-center lg:mt-0 lg:min-h-[calc(100vh_-_100px)]">
       <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:mt-0">
         <motion.div
           className="flex flex-col gap-6"
@@ -23,9 +23,9 @@ const Hero = () => {
               Jestem Front-end Deweloperem.
             </h1>
           </div>
-          <div className="flex flex-col text-lg gap-6 sm:flex-row sm:items-center">
-            <span className="flex border-2 border-neutral-800 py-1 px-6 rounded-full text-center justify-center w-[200px]">
-              🇵🇱 Lublin, Polska
+          <div className="flex flex-row text-lg gap-3 items-center md:gap-6">
+            <span className="flex border-2 border-neutral-800 py-1 px-4 rounded-full text-center justify-center md:w-[200px] md:px-6">
+              🇵🇱 Lublin <div className="hidden sm:block">, Polska</div>
             </span>
             <div className="flex gap-3">
               {siteMeta.TOPICS.map((topic, index) => (

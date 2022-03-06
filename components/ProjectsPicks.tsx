@@ -23,11 +23,11 @@ const ProjectsPicks = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.15, duration: 0.2 }}
-        className="flex flex-col gap-24"
+        className="flex flex-col gap-12 divide-y divide-neutral-800 md:divide-y-0 md:gap-24"
       >
         {PROJECTS.map((project, index) => (
           <motion.li
-            className="flex flex-col justify-between gap-12 lg:flex-row"
+            className="flex flex-col justify-between gap-12 pt-12 lg:flex-row md:pt-0 first:pt-0"
             variants={cardVariants}
             initial="offScreen"
             whileInView="onScreen"
@@ -68,7 +68,7 @@ const ProjectsPicks = () => {
               href={project.previewLink}
               target="_blank"
               rel="noreferrer"
-              className={`group relative h-72 w-full shadow-md transition-shadow ${
+              className={`group relative h-56 w-full shadow-md transition-shadow ${
                 project.previewLink ? 'hover:shadow-xl' : ''
               } lg:h-96`}
             >
