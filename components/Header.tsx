@@ -28,7 +28,10 @@ const Header = () => {
             {NAV_ITEMS.map((item, index) => (
               <li key={index}>
                 <Link href={item.link}>
-                  <a className="transition-opacity hover:opacity-70">
+                  <a
+                    className="transition-opacity hover:opacity-70"
+                    target={item?.external ? '_blank' : '_self'}
+                  >
                     {item.label}
                   </a>
                 </Link>

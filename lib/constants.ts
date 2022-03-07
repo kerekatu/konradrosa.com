@@ -22,7 +22,7 @@ const siteMeta = {
   ],
   URL: 'https://konradrosa.com',
   MAIL: 'kontakt@konradrosa.com',
-  THUMBNAIL: '/static/projects/project-2.pmg',
+  THUMBNAIL: '/static/projects/project-2.png',
 }
 
 const NAV_ITEMS = [
@@ -30,6 +30,7 @@ const NAV_ITEMS = [
     label: 'Projekty',
     link: '#projects',
   },
+  { label: 'CV', link: '/static/CV_Konrad_Rosa.pdf', external: true },
 ]
 
 const CONTACTS = [
