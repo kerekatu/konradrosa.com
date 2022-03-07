@@ -41,12 +41,12 @@ const Container = ({
         <meta property="og:site_name" content={siteMeta.TITLE} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
-        <meta property="og:image" content={meta.thumbnail} />
+        <meta property="og:image" content={meta.url + meta.thumbnail} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@konradtrosa" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={meta.thumbnail} />
+        <meta name="twitter:image" content={meta.url + meta.thumbnail} />
         {meta?.date && (
           <meta property="article:published_time" content={meta.date} />
         )}
