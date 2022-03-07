@@ -22,7 +22,7 @@ const siteMeta = {
   ],
   URL: 'https://konradrosa.com',
   MAIL: 'kontakt@konradrosa.com',
-  THUMBNAIL: '',
+  THUMBNAIL: '/static/projects/project-2.pmg',
 }
 
 const NAV_ITEMS = [
