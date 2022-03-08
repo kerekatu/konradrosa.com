@@ -7,8 +7,8 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
   return (
-    <section className="flex mt-6 lg:items-center lg:mt-0 lg:min-h-[calc(100vh_-_100px)]">
-      <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:mt-0">
+    <section className="flex mt-6 md:mt-24 lg:items-center lg:mt-0 lg:min-h-[calc(100vh_-_100px)]">
+      <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
         <motion.div
           className="flex flex-col gap-6"
           transition={{ duration: 1 }}
