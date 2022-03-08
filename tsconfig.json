@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
+      "@/data/*": ["data/*"],
       "@/layouts/*": ["layouts/*"],
       "@/lib/*": ["lib/*"],
       "@/styles/*": ["styles/*"],
@@ -24,6 +25,12 @@
       "@/typings/*": ["typings/*"]
     }
   },
-  "include": ["next-env.d.ts", "typings/*.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "typings/*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "data/*.mdx"
+  ],
   "exclude": ["node_modules"]
 }

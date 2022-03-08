@@ -1,4 +1,4 @@
-type SiteMeta = {
+export type SiteMeta = {
   title: string
   description: string
   url: string
@@ -7,7 +7,7 @@ type SiteMeta = {
   date: string
 }
 
-interface NavItem {
+export interface NavItem {
   label: string
   iconPath?: string | null
   link: string

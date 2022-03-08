@@ -30,6 +30,7 @@ const NAV_ITEMS = [
     label: 'Projekty',
     link: '#projects',
   },
+  { label: 'Blog', link: '/blog' },
   { label: 'CV', link: '/static/CV_Konrad_Rosa.pdf', external: true },
 ]
 
